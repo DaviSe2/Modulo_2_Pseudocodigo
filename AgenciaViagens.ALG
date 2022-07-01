@@ -7,34 +7,61 @@ Algoritmo "Agencia de Viagens"
 // Autor(a)    : Davi de Sena Eduardo
 // Data atual  : 01/07/2022
 Var
-   opcaoMenu, opcaoClientes, opcaoDestinos: caracter
+   opcao: caracter
 
 
 Inicio
-   enquanto ((opcaoMenu <> "1")e(opcaoMenu <> "2")) faca
+   enquanto ((opcao <> "1")e(opcao <> "2")) faca
       escreval("NdR VIAGENS")
       escreval("====================")
       escreval("1 - CLIENTES")
       escreval("2 - DESTINOS")
       escreval("====================")
-      leia(opcaoMenu)
+      leia(opcao)
       limpatela
-      se (opcaoMenu = "1") entao
-         escreval("CLIENTES")
-         escreval("====================")
-         escreval("1 - CADASTRAR CLIENTE")
-         escreval("2 - CONSULTAR CLIENTE")
-         escreval("3 - VOLTAR")
-         escreval("====================")
+      //MENU CLIENTES
+      se (opcao = "1") entao
+         opcao <- ""
+         enquanto ((opcao <> "1") e (opcao <> "2") e (opcao <> "3")) faca
+            escreval("CLIENTES")
+            escreval("====================")
+            escreval("1 - CADASTRAR CLIENTE")
+            escreval("2 - CONSULTAR CLIENTE")
+            escreval("3 - VOLTAR")
+            escreval("====================")
+            leia(opcao)
+            limpatela
+            //CADASTRO DE CLIENTES
+            se (opcao = "1") entao
+               escreval("CADASTRAR CLIENTES")
+               escreval("====================")
+            senao
+            //CONSULTA DE CLIENTES
+               se (opcao = "2") entao
+                  escreval("CONSULTAR CLIENTES")
+                  escreval("====================")
+               senao
+               //VOLTAR OU ERRO
+                  se (opcao <> "3") entao
+                     escreval("OPÇÃO INVÁLIDA!!!")
+                     escreval("Por favor, digite uma opção válida")
+                     escreval
+                  fimse
+               fimse
+            fimse
+         fimenquanto
+      //MENU DESTINOS
       senao
-         se (opcaoMenu ="2") entao
+         se (opcao ="2") entao
             escreval("DESTINOS")
             escreval("====================")
          senao
             escreval("OPÇÃO INVÁLIDA!!!")
             escreval("Por favor, digite uma opção válida")
+            escreval
          fimse
       fimse
+      
    fimenquanto
 
 
