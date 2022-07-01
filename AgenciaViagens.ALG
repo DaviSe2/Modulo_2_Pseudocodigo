@@ -8,14 +8,73 @@ Algoritmo "Agencia de Viagens"
 // Data atual  : 01/07/2022
 Var
    opcao: caracter
+   cont: inteiro
+   id: vetor[1..2] de inteiro
+   nome: vetor[1..2] de caracter
+   idade: vetor[1..2] de inteiro
+   telefone: vetor[1..2] de caracter
+   email: vetor[1..2] de caracter
+   
+   
+procedimento cadastrarCliente()
+inicio
+   cont <- 1
+      enquanto (cont <= 2) faca
+         escreval("CADASTRAR CLIENTES")
+         escreval("====================")
+         se (id[cont] = 0) entao
+            id[cont] <- cont
+            escreval("Nome:")
+            leia(nome[cont])
+            escreval
+            escreval("Idade:")
+            leia(idade[cont])
+            escreval
+            escreval("Telefone:")
+            leia(telefone[cont])
+            escreval
+            escreval("E-mail:")
+            leia(email[cont])
+            escreval
+            opcao <- ""
+            enquanto ((opcao <> "1")e(opcao <> "2")) faca
+               escreval("1 - Cadastrar novo cliente")
+               escreval("2 - Sair")
+               leia (opcao)
+               se (opcao = "1") entao
+                  cont <- cont + 1
+                  limpatela
+               senao
+                  se (opcao = "2") entao
+                     cont <- 1000
+                  senao
+                     limpatela
+                     escreval("OPÇÃO INVÁLIDA!!!")
+                     escreval("Por favor, digite uma opção válida")
+                  fimse
+               fimse
+            fimenquanto
+         senao
+            cont <- cont + 1
+            limpatela
+         fimse
+      fimenquanto
+   opcao <- ""
+   limpatela
+fimprocedimento
+
+procedimento consultarCliente()
+   escreval(nome[1])
+fimprocedimento
 
 
 Inicio
-   enquanto ((opcao <> "1")e(opcao <> "2")) faca
+   enquanto ((opcao <> "1")e(opcao <> "2")e(opcao <> "3")) faca
       escreval("NdR VIAGENS")
       escreval("====================")
       escreval("1 - CLIENTES")
       escreval("2 - DESTINOS")
+      escreval("3 - FECHAR")
       escreval("====================")
       leia(opcao)
       limpatela
@@ -33,8 +92,7 @@ Inicio
             limpatela
             //CADASTRO DE CLIENTES
             se (opcao = "1") entao
-               escreval("CADASTRAR CLIENTES")
-               escreval("====================")
+               cadastrarCliente()
             senao
             //CONSULTA DE CLIENTES
                se (opcao = "2") entao
@@ -50,6 +108,7 @@ Inicio
                fimse
             fimse
          fimenquanto
+         opcao <- ""
       //FIM MENU CLIENTES
       senao
          //MENU DESTINOS
@@ -83,11 +142,16 @@ Inicio
                   fimse
                fimse
             fimenquanto
+            opcao <- ""
          //FIM MENU DESTINOS
          senao
-            escreval("OPÇÃO INVÁLIDA!!!")
-            escreval("Por favor, digite uma opção válida")
-            escreval
+            se (opcao = "3") entao
+               //FECHAR
+            senao
+               escreval("OPÇÃO INVÁLIDA!!!")
+               escreval("Por favor, digite uma opção válida")
+               escreval
+            fimse
          fimse
       fimse
    fimenquanto
