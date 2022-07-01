@@ -25,8 +25,8 @@ Inicio
          enquanto ((opcao <> "1") e (opcao <> "2") e (opcao <> "3")) faca
             escreval("CLIENTES")
             escreval("====================")
-            escreval("1 - CADASTRAR CLIENTE")
-            escreval("2 - CONSULTAR CLIENTE")
+            escreval("1 - CADASTRAR CLIENTES")
+            escreval("2 - CONSULTAR CLIENTES")
             escreval("3 - VOLTAR")
             escreval("====================")
             leia(opcao)
@@ -50,19 +50,46 @@ Inicio
                fimse
             fimse
          fimenquanto
-      //MENU DESTINOS
+      //FIM MENU CLIENTES
       senao
+         //MENU DESTINOS
          se (opcao ="2") entao
-            escreval("DESTINOS")
-            escreval("====================")
+            opcao <- ""
+            enquanto ((opcao <> "1") e (opcao <> "2") e (opcao <> "3")) faca
+               escreval("DESTINOS")
+               escreval("====================")
+               escreval("1 - CADASTRAR DESTINOS")
+               escreval("2 - CONSULTAR DESTINOS")
+               escreval("3 - VOLTAR")
+               escreval("====================")
+               leia(opcao)
+               limpatela
+               //CADASTRO DE DESTINOS
+               se (opcao = "1") entao
+                  escreval("CADASTRAR DESTINOS")
+                  escreval("====================")
+               senao
+               //CONSULTA DE DESTINOS
+                  se (opcao = "2") entao
+                     escreval("CONSULTAR DESTINOS")
+                     escreval("====================")
+                  senao
+                  //VOLTAR OU ERRO
+                     se (opcao <> "3") entao
+                        escreval("OPÇÃO INVÁLIDA!!!")
+                        escreval("Por favor, digite uma opção válida")
+                        escreval
+                     fimse
+                  fimse
+               fimse
+            fimenquanto
+         //FIM MENU DESTINOS
          senao
             escreval("OPÇÃO INVÁLIDA!!!")
             escreval("Por favor, digite uma opção válida")
             escreval
          fimse
       fimse
-      
    fimenquanto
-
 
 Fimalgoritmo
