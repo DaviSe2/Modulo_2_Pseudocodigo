@@ -9,32 +9,32 @@ Algoritmo "Agencia de Viagens"
 Var
    opcao: caracter
    cont: inteiro
-   id: vetor[1..2] de inteiro
-   nome: vetor[1..2] de caracter
-   idade: vetor[1..2] de inteiro
-   telefone: vetor[1..2] de caracter
-   email: vetor[1..2] de caracter
+   idCliente: vetor[1..100] de inteiro
+   nomeCliente: vetor[1..100] de caracter
+   idadeCliente: vetor[1..100] de inteiro
+   telefoneCliente: vetor[1..100] de caracter
+   emailCliente: vetor[1..100] de caracter
    
    
 procedimento cadastrarCliente()
 inicio
    cont <- 1
-      enquanto (cont <= 2) faca
+      enquanto (cont <= 100) faca
          escreval("CADASTRAR CLIENTES")
          escreval("====================")
-         se (id[cont] = 0) entao
-            id[cont] <- cont
+         se (idCliente[cont] = 0) entao
+            idCliente[cont] <- cont
             escreval("Nome:")
-            leia(nome[cont])
+            leia(nomeCliente[cont])
             escreval
             escreval("Idade:")
-            leia(idade[cont])
+            leia(idadeCliente[cont])
             escreval
             escreval("Telefone:")
-            leia(telefone[cont])
+            leia(telefoneCliente[cont])
             escreval
             escreval("E-mail:")
-            leia(email[cont])
+            leia(emailCliente[cont])
             escreval
             opcao <- ""
             enquanto ((opcao <> "1")e(opcao <> "2")) faca
@@ -64,7 +64,44 @@ inicio
 fimprocedimento
 
 procedimento consultarCliente()
-   escreval(nome[1])
+inicio
+   cont <- 1
+   enquanto (cont <= 100) faca
+      se(idCliente[cont] = 0) entao
+         cont <- cont + 1
+      senao
+         escreva("ID: ")
+         escreva(idCliente[cont])
+         escreval
+         escreva("NOME: ")
+         escreva(nomeCliente[cont])
+         escreval
+         escreva("IDADE: ")
+         escreva(idadeCliente[cont])
+         escreval
+         escreva("TELEFONE: ")
+         escreva(telefoneCliente[cont])
+         escreval
+         escreva("E-MAIL: ")
+         escreva(emailCliente[cont])
+         escreval
+         escreva("====================")
+         escreval
+         cont <- cont + 1
+      fimse
+   fimenquanto
+   enquanto (opcao <> "1") faca
+      escreval("1 - Sair")
+      leia (opcao)
+      se (opcao <> "1") entao
+         escreval
+         escreval("OPÇÃO INVÁLIDA!!!")
+         escreval("Por favor, digite uma opção válida")
+         escreval("====================")
+      fimse
+   fimenquanto
+   limpatela
+   opcao <- ""
 fimprocedimento
 
 
@@ -98,6 +135,7 @@ Inicio
                se (opcao = "2") entao
                   escreval("CONSULTAR CLIENTES")
                   escreval("====================")
+                  consultarCliente()
                senao
                //VOLTAR OU ERRO
                   se (opcao <> "3") entao
