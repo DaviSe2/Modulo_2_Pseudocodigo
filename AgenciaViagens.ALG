@@ -14,7 +14,10 @@ Var
    idadeCliente: vetor[1..100] de inteiro
    telefoneCliente: vetor[1..100] de caracter
    emailCliente: vetor[1..100] de caracter
-   
+   idDestino: vetor[1..100] de inteiro
+   companhiaDestino: vetor[1..100] de caracter
+   paisDestino: vetor[1..100] de caracter
+   cidadeDestino: vetor[1..100] de caracter
    
 procedimento cadastrarCliente()
 inicio
@@ -104,6 +107,87 @@ inicio
    opcao <- ""
 fimprocedimento
 
+procedimento cadastrarDestino()
+inicio
+   cont <- 1
+      enquanto (cont <= 100) faca
+         escreval("CADASTRAR DESTINOS")
+         escreval("====================")
+         se (idDestino[cont] = 0) entao
+            idDestino[cont] <- cont
+            escreval("COMPANHIA AÉREA:")
+            leia(companhiaDestino[cont])
+            escreval
+            escreval("PAÍS:")
+            leia(paisDestino[cont])
+            escreval
+            escreval("CIDADE:")
+            leia(cidadeDestino[cont])
+            escreval
+            opcao <- ""
+            enquanto ((opcao <> "1")e(opcao <> "2")) faca
+               escreval("1 - Cadastrar novo destino")
+               escreval("2 - Sair")
+               leia (opcao)
+               se (opcao = "1") entao
+                  cont <- cont + 1
+                  limpatela
+               senao
+                  se (opcao = "2") entao
+                     cont <- 1000
+                  senao
+                     limpatela
+                     escreval("OPÇÃO INVÁLIDA!!!")
+                     escreval("Por favor, digite uma opção válida")
+                  fimse
+               fimse
+            fimenquanto
+         senao
+            cont <- cont + 1
+            limpatela
+         fimse
+      fimenquanto
+   opcao <- ""
+   limpatela
+fimprocedimento
+
+procedimento consultarDestino()
+inicio
+   cont <- 1
+   enquanto (cont <= 100) faca
+      se(idDestino[cont] = 0) entao
+         cont <- cont + 1
+      senao
+         escreva("ID: ")
+         escreva(idDestino[cont])
+         escreval
+         escreva("COMPANHIA AÉREA: ")
+         escreva(companhiaDestino[cont])
+         escreval
+         escreva("PAÍS: ")
+         escreva(paisDestino[cont])
+         escreval
+         escreva("CIDADE: ")
+         escreva(cidadeDestino[cont])
+         escreval
+         escreva("====================")
+         escreval
+         cont <- cont + 1
+      fimse
+   fimenquanto
+   enquanto (opcao <> "1") faca
+      escreval("1 - Sair")
+      leia (opcao)
+      se (opcao <> "1") entao
+         escreval
+         escreval("OPÇÃO INVÁLIDA!!!")
+         escreval("Por favor, digite uma opção válida")
+         escreval("====================")
+      fimse
+   fimenquanto
+   limpatela
+   opcao <- ""
+fimprocedimento
 
 Inicio
    enquanto ((opcao <> "1")e(opcao <> "2")e(opcao <> "3")) faca
@@ -163,13 +247,13 @@ Inicio
                limpatela
                //CADASTRO DE DESTINOS
                se (opcao = "1") entao
-                  escreval("CADASTRAR DESTINOS")
-                  escreval("====================")
+                  cadastrarDestino()
                senao
                //CONSULTA DE DESTINOS
                   se (opcao = "2") entao
                      escreval("CONSULTAR DESTINOS")
                      escreval("====================")
+                     consultarDestino()
                   senao
                   //VOLTAR OU ERRO
                      se (opcao <> "3") entao
