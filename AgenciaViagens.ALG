@@ -22,46 +22,46 @@ Var
 procedimento cadastrarCliente()
 inicio
    cont <- 1
-      enquanto (cont <= 100) faca
-         escreval("CADASTRAR CLIENTES")
-         escreval("====================")
-         se (idCliente[cont] = 0) entao
-            idCliente[cont] <- cont
-            escreval("Nome:")
-            leia(nomeCliente[cont])
-            escreval
-            escreval("Idade:")
-            leia(idadeCliente[cont])
-            escreval
-            escreval("Telefone:")
-            leia(telefoneCliente[cont])
-            escreval
-            escreval("E-mail:")
-            leia(emailCliente[cont])
-            escreval
-            opcao <- ""
-            enquanto ((opcao <> "1")e(opcao <> "2")) faca
-               escreval("1 - Cadastrar novo cliente")
-               escreval("2 - Sair")
-               leia (opcao)
-               se (opcao = "1") entao
-                  cont <- cont + 1
-                  limpatela
+   enquanto (cont <= 100) faca
+      escreval("CADASTRAR CLIENTES")
+      escreval("====================")
+      se (idCliente[cont] = 0) entao
+         idCliente[cont] <- cont
+         escreval("Nome:")
+         leia(nomeCliente[cont])
+         escreval
+         escreval("Idade:")
+         leia(idadeCliente[cont])
+         escreval
+         escreval("Telefone:")
+         leia(telefoneCliente[cont])
+         escreval
+         escreval("E-mail:")
+         leia(emailCliente[cont])
+         escreval
+         opcao <- ""
+         enquanto ((opcao <> "1")e(opcao <> "2")) faca
+            escreval("1 - Cadastrar novo cliente")
+            escreval("2 - Sair")
+            leia (opcao)
+            se (opcao = "1") entao
+               cont <- cont + 1
+               limpatela
+            senao
+               se (opcao = "2") entao
+                  cont <- 1000
                senao
-                  se (opcao = "2") entao
-                     cont <- 1000
-                  senao
-                     limpatela
-                     escreval("OPÇÃO INVÁLIDA!!!")
-                     escreval("Por favor, digite uma opção válida")
-                  fimse
+                  limpatela
+                  escreval("OPÇÃO INVÁLIDA!!!")
+                  escreval("Por favor, digite uma opção válida")
                fimse
-            fimenquanto
-         senao
-            cont <- cont + 1
-            limpatela
-         fimse
-      fimenquanto
+            fimse
+         fimenquanto
+      senao
+         cont <- cont + 1
+         limpatela
+      fimse
+   fimenquanto
    opcao <- ""
    limpatela
 fimprocedimento
@@ -69,6 +69,8 @@ fimprocedimento
 procedimento consultarCliente()
 inicio
    cont <- 1
+   escreval("CONSULTAR CLIENTES")
+   escreval("====================")
    enquanto (cont <= 100) faca
       se(idCliente[cont] = 0) entao
          cont <- cont + 1
@@ -110,43 +112,43 @@ fimprocedimento
 procedimento cadastrarDestino()
 inicio
    cont <- 1
-      enquanto (cont <= 100) faca
-         escreval("CADASTRAR DESTINOS")
-         escreval("====================")
-         se (idDestino[cont] = 0) entao
-            idDestino[cont] <- cont
-            escreval("COMPANHIA AÉREA:")
-            leia(companhiaDestino[cont])
-            escreval
-            escreval("PAÍS:")
-            leia(paisDestino[cont])
-            escreval
-            escreval("CIDADE:")
-            leia(cidadeDestino[cont])
-            escreval
-            opcao <- ""
-            enquanto ((opcao <> "1")e(opcao <> "2")) faca
-               escreval("1 - Cadastrar novo destino")
-               escreval("2 - Sair")
-               leia (opcao)
-               se (opcao = "1") entao
-                  cont <- cont + 1
-                  limpatela
+   enquanto (cont <= 100) faca
+      escreval("CADASTRAR DESTINOS")
+      escreval("====================")
+      se (idDestino[cont] = 0) entao
+         idDestino[cont] <- cont
+         escreval("COMPANHIA AÉREA:")
+         leia(companhiaDestino[cont])
+         escreval
+         escreval("PAÍS:")
+         leia(paisDestino[cont])
+         escreval
+         escreval("CIDADE:")
+         leia(cidadeDestino[cont])
+         escreval
+         opcao <- ""
+         enquanto ((opcao <> "1")e(opcao <> "2")) faca
+            escreval("1 - Cadastrar novo destino")
+            escreval("2 - Sair")
+            leia (opcao)
+            se (opcao = "1") entao
+               cont <- cont + 1
+               limpatela
+            senao
+               se (opcao = "2") entao
+                  cont <- 1000
                senao
-                  se (opcao = "2") entao
-                     cont <- 1000
-                  senao
-                     limpatela
-                     escreval("OPÇÃO INVÁLIDA!!!")
-                     escreval("Por favor, digite uma opção válida")
-                  fimse
+                  limpatela
+                  escreval("OPÇÃO INVÁLIDA!!!")
+                  escreval("Por favor, digite uma opção válida")
                fimse
-            fimenquanto
-         senao
-            cont <- cont + 1
-            limpatela
-         fimse
-      fimenquanto
+            fimse
+         fimenquanto
+      senao
+         cont <- cont + 1
+         limpatela
+      fimse
+   fimenquanto
    opcao <- ""
    limpatela
 fimprocedimento
@@ -154,6 +156,8 @@ fimprocedimento
 procedimento consultarDestino()
 inicio
    cont <- 1
+   escreval("CONSULTAR DESTINOS")
+   escreval("====================")
    enquanto (cont <= 100) faca
       se(idDestino[cont] = 0) entao
          cont <- cont + 1
@@ -217,8 +221,6 @@ Inicio
             senao
             //CONSULTA DE CLIENTES
                se (opcao = "2") entao
-                  escreval("CONSULTAR CLIENTES")
-                  escreval("====================")
                   consultarCliente()
                senao
                //VOLTAR OU ERRO
@@ -251,8 +253,6 @@ Inicio
                senao
                //CONSULTA DE DESTINOS
                   se (opcao = "2") entao
-                     escreval("CONSULTAR DESTINOS")
-                     escreval("====================")
                      consultarDestino()
                   senao
                   //VOLTAR OU ERRO
